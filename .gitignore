@@ -2,3 +2,4 @@ plan.txt
 .venv
 .cache
 __pycache__
+auth.json
