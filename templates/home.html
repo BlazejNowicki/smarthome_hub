@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class='alarm-box'>
+    {% for alarm in alarms %}
+    <div class="alarm">
+        <div class="alarm-left">
+            <h5 class="hour">{{ alarm.time }}</h5>
+            <p>{{ alarm.playlist }}</p>
+        </div>
+        <div class='alarm-right'>
+            <input type="checkbox">
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="save-cancel">
+    <!-- <button>Cancel</button> -->
+    <button id="button-save">Save</button>
+</div>
+{% endblock content %}
