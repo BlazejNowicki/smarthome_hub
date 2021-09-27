@@ -28,6 +28,5 @@ class SpotifyControl():
         # Device not found
         return None
     
-    def play(self, playlist_uri, device_id, volume):
+    def play(self, playlist_uri, device_id):
         self.sp.start_playback(device_id=device_id, uris=[playlist_uri])
-        self.sp.volume(volume_percent=volume, device_id=device_id)
