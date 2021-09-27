@@ -4,5 +4,11 @@
         "minute": 50,
         "active": 1,
         "playlist_id": "spotify:playlist:37i9dQZF1DWSqmBTGDYngZ"
+    },
+    {
+        "hour": 18,
+        "minute": 49,
+        "active": 0,
+        "playlist_id": "spotify:track:5FVd6KXrgO9B3JPmC8OPst"
     }
 ]

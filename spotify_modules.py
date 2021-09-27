@@ -30,3 +30,13 @@ class SpotifyControl():
     
     def play(self, playlist_uri, device_id):
         self.sp.start_playback(device_id=device_id, uris=[playlist_uri])
+
+
+if __name__ == '__main__':
+    contr = SpotifyControl()
+    denon = contr.get_id("Denon")
+    contact_datf_punk = 'spotify:track:79koEJRtKOOGJ0VSAF3FMk'
+    doiwannaknow = 'spotify:track:5FVd6KXrgO9B3JPmC8OPst'
+
+    contr.play(playlist_uri=doiwannaknow,
+               device_id=denon)

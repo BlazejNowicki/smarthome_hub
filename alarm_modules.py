@@ -12,7 +12,7 @@ class Alarm:
         self.active = True if active == 1 else False
         self.playlist_id = playlist_id
 
-    def check(self):
+    def check_time(self):
         '''Check if alarm should be executed'''
         now = datetime.datetime.now().replace(microsecond=0)
         two_min_ago = now - datetime.timedelta(minutes=2)
@@ -24,6 +24,9 @@ class Alarm:
         # print(two_min_ago)
         # print(alarm_time)
         return self.active and two_min_ago <= alarm_time <= now
+    
+    def deactivate(self):
+        self.active = False
 
     def __str__(self) -> str:
         return f"Godz: {self.hour}:{self.minute}, Status: {self.active}, Playlist's id: {self.playlist_id}"
@@ -32,8 +35,9 @@ class Alarm:
 class Alarms:
     def __init__(self, file_name=None):
         self.alarms = []
+        self.file_name = file_name
         if file_name is not None:
-            with open(file_name, 'r') as input:
+            with open(self.file_name, 'r') as input:
                 alarms_dict = json.load(input)
         if alarms_dict is not None:
             for alarm_dict in alarms_dict:
@@ -45,6 +49,19 @@ class Alarms:
     def print(self):
         for a in self.alarms:
             print(a)
+    
+    def save_to_json(self):
+        with open(self.file_name, 'w') as output:
+            new_list = []
+            for alarm in self.alarms:
+                tmp_dict = {
+                    'hour': alarm.hour,
+                    'minute': alarm.minute,
+                    'active': 1 if alarm.active else 0,
+                    'playlist_id': alarm.playlist_id
+                }
+                new_list.append(tmp_dict)
+            json.dump(new_list, output, indent=4)
 
 
 if __name__ == '__main__':
