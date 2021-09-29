@@ -33,6 +33,9 @@ class Alarm:
     
     def deactivate(self):
         self.active = False
+    
+    def activate(self):
+        self.active = True
 
     def __str__(self) -> str:
         return f"Godz: {self.hour}:{self.minute}, Status: {self.active}, Playlist: {self.playlist_name} {self.playlist_id}"
@@ -74,6 +77,14 @@ class Alarms:
             }
             new_list.append(tmp_dict)
         return new_list
+    
+    def add(self, time: datetime.time, playlist_id, playlist_name):
+        new = Alarm(hour=int(time.strftime("%H")),
+                    minute=int(time.strftime("%M")),
+                    playlist_name=playlist_name,
+                    playlist_id=playlist_id)
+        print(new)
+        self.alarms.insert(0, new)
     
     def remove(self, id=None):
         for i, al in enumerate(self.alarms):

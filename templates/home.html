@@ -1,33 +1,36 @@
 {% extends 'layout.html' %}
 {% block content %}
-<div>
-    <a href='{{ url_for("edit") }}'>
-        NEW
-    </a>
-</div>
-<div class='alarm-box'>
-    {% for alarm in alarms %}
-    <div class="alarm">
-        <div class="alarm-left">
-            <h5 class="hour">{{ alarm.hour }}:{{ alarm.minute }}</h5>
-            <p>{{ alarm.playlist_name }}</p>
-            <!-- <form action="/" method="post">
-                <input type="submit" value="delete", nam>
-            </form> -->
-            <!-- <a href="/delete/{{ alarm.id }}"> -->
-            <a href='{{ url_for("delete", id=alarm.id) }}'>
-                <p>Delete</p>
-            </a>
-        </div>
-        <div class='alarm-right'>
-            <input type="checkbox">
-        </div>
+<form action="/" method="POST">
+    <div>
+        <a href='{{ url_for("edit") }}'>
+            NEW
+        </a>
     </div>
+    <div class='alarm-box'>
+        {% for alarm in alarms %}
+        <div class="alarm">
+            <div class="alarm-left">
+                <h5 class="hour">{{ alarm.hour }}:{{ alarm.minute }}</h5>
+                <p>{{ alarm.playlist_name }}</p>
+                <!-- <form action="/" method="post">
+                    <input type="submit" value="delete", nam>
+                </form> -->
+                <!-- <a href="/delete/{{ alarm.id }}"> -->
+                <a href='{{ url_for("delete", id=alarm.id) }}'>
+                    <p>Delete</p>
+                </a>
+            </div>
+            <div class='alarm-right'>
+                <input type="checkbox" name="state" value="{{ alarm.id }}" {% if alarm.active == 1 %}checked{% endif %}>
+            </div>
+        </div>
 
-    {% endfor %}
-</div>
-<div class="save-cancel">
-    <!-- <button>Cancel</button> -->
-    <button id="button-save">Save</button>
-</div>
+        {% endfor %}
+    </div>
+    <div class="save-cancel">
+        <!-- <button>Cancel</button> -->
+        <!-- <button id="button-save">Save</button> -->
+        <input type="submit">
+    </div>
+</form>
 {% endblock content %}
