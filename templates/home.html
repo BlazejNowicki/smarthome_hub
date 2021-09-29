@@ -1,16 +1,29 @@
 {% extends 'layout.html' %}
 {% block content %}
+<div>
+    <a href='{{ url_for("edit") }}'>
+        NEW
+    </a>
+</div>
 <div class='alarm-box'>
     {% for alarm in alarms %}
     <div class="alarm">
         <div class="alarm-left">
-            <h5 class="hour">{{ alarm.time }}</h5>
-            <p>{{ alarm.playlist }}</p>
+            <h5 class="hour">{{ alarm.hour }}:{{ alarm.minute }}</h5>
+            <p>{{ alarm.playlist_name }}</p>
+            <!-- <form action="/" method="post">
+                <input type="submit" value="delete", nam>
+            </form> -->
+            <!-- <a href="/delete/{{ alarm.id }}"> -->
+            <a href='{{ url_for("delete", id=alarm.id) }}'>
+                <p>Delete</p>
+            </a>
         </div>
         <div class='alarm-right'>
             <input type="checkbox">
         </div>
     </div>
+
     {% endfor %}
 </div>
 <div class="save-cancel">

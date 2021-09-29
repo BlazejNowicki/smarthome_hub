@@ -1,15 +1,21 @@
 import json
 import datetime
+import random
 # Load json file, make all the changes and save updated version
 # If no file exist create a new one
 # If file exist load it
 
 
 class Alarm:
-    def __init__(self, hour=0, minute=0, active=0, playlist_id=None):
+    def __init__(self, id=None, hour=0, minute=0, active=True, playlist_name=None, playlist_id=None):
+        if id is None:
+            self.id = random.randint(1,10**10)
+        else:
+            self.id = id
         self.hour = hour
         self.minute = minute
         self.active = True if active == 1 else False
+        self.playlist_name = playlist_name
         self.playlist_id = playlist_id
 
     def check_time(self):
@@ -29,7 +35,7 @@ class Alarm:
         self.active = False
 
     def __str__(self) -> str:
-        return f"Godz: {self.hour}:{self.minute}, Status: {self.active}, Playlist's id: {self.playlist_id}"
+        return f"Godz: {self.hour}:{self.minute}, Status: {self.active}, Playlist: {self.playlist_name} {self.playlist_id}"
 
 
 class Alarms:
@@ -52,21 +58,33 @@ class Alarms:
     
     def save_to_json(self):
         with open(self.file_name, 'w') as output:
-            new_list = []
-            for alarm in self.alarms:
-                tmp_dict = {
-                    'hour': alarm.hour,
-                    'minute': alarm.minute,
-                    'active': 1 if alarm.active else 0,
-                    'playlist_id': alarm.playlist_id
-                }
-                new_list.append(tmp_dict)
+            new_list = self.to_dictionary()
             json.dump(new_list, output, indent=4)
+    
+    def to_dictionary(self):
+        new_list = []
+        for alarm in self.alarms:
+            tmp_dict = {
+                'id':alarm.id,
+                'hour': alarm.hour,
+                'minute': alarm.minute,
+                'active': 1 if alarm.active else 0,
+                'playlist_name': alarm.playlist_name,
+                'playlist_id': alarm.playlist_id
+            }
+            new_list.append(tmp_dict)
+        return new_list
+    
+    def remove(self, id=None):
+        for i, al in enumerate(self.alarms):
+            if al.id == id:
+                self.alarms.pop(i)
+                return
+
+
 
 
 if __name__ == '__main__':
     a = Alarms("db.json")
-    # a.print()
     for k in a:
         print(k)
-        k.check()

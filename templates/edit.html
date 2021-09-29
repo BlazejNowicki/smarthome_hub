@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div>
+        <form method='POST' action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>Edit alarm</legend>
+                <div>
+                    {{ form.time.label() }}
+                    {{ form.time() }}
+                </div>
+                <div>
+                    {{ form.active.label() }}
+                    {{ form.active() }}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

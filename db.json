@@ -1,14 +1,18 @@
 [
     {
-        "hour": 7,
-        "minute": 50,
-        "active": 1,
+        "id": 123,
+        "hour": 20,
+        "minute": 47,
+        "active": 0,
+        "playlist_name": "Playlist A",
         "playlist_id": "spotify:playlist:37i9dQZF1DWSqmBTGDYngZ"
     },
     {
-        "hour": 18,
+        "id": 122,
+        "hour": 20,
         "minute": 49,
         "active": 0,
+        "playlist_name": "Playlist B",
         "playlist_id": "spotify:track:5FVd6KXrgO9B3JPmC8OPst"
     }
 ]

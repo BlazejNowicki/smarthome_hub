@@ -1,4 +1,4 @@
-# Flask hello-world app that is avaliable on local network
+# Flask hello-world app that is avaliable on the local network
 from flask import Flask
 
 app = Flask(__name__)
