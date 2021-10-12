@@ -35,8 +35,7 @@ class SpotifyControl():
 if __name__ == '__main__':
     contr = SpotifyControl()
     denon = contr.get_id("Denon")
-    contact_datf_punk = 'spotify:track:79koEJRtKOOGJ0VSAF3FMk'
-    doiwannaknow = 'spotify:track:5FVd6KXrgO9B3JPmC8OPst'
+    random_access_memories = "spotify:album:4m2880jivSbbyEGAKfITCa"
 
-    contr.play(playlist_uri=doiwannaknow,
+    contr.play(playlist_uri=random_access_memories,
                device_id=denon)
