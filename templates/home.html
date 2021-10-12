@@ -10,7 +10,7 @@
         {% for alarm in alarms %}
         <div class="alarm">
             <div class="alarm-left">
-                <h5 class="hour">{{ alarm.hour }}:{{ alarm.minute }}</h5>
+                <h5 class="hour">{{ alarm.hour }}:{% if alarm.minute < 10 %}0{% endif %}{{ alarm.minute }}</h5>
                 <p>{{ alarm.playlist_name }}</p>
                 <!-- <form action="/" method="post">
                     <input type="submit" value="delete", nam>

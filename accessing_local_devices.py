@@ -4,8 +4,9 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 scope = "user-library-read user-read-playback-state user-modify-playback-state"
-client_id = "a4b661f55c6a499399de495677750087"
-client_secret = "6f99d7271ab14a49a247be8c66dad03c"
+# nie można ich dodać na githuba
+client_id = None
+client_secret = None
 redirect_url = "http://127.0.0.1:9090"
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, client_id=client_id, 

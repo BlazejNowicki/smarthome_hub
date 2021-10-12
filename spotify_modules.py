@@ -29,7 +29,7 @@ class SpotifyControl():
         return None
     
     def play(self, playlist_uri, device_id):
-        self.sp.start_playback(device_id=device_id, uris=[playlist_uri])
+        self.sp.start_playback(device_id=device_id, context_uri=playlist_uri)
 
 
 if __name__ == '__main__':
