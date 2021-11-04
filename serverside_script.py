@@ -5,7 +5,7 @@ from datetime import datetime
 
 def main():
     contr = SpotifyControl()
-    denon = contr.get_id('Denon')
+    denon = contr.get_id('Galaxy S9')
     all = Alarms('db.json')
     now = datetime.now()
 

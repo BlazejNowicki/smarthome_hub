@@ -6,6 +6,7 @@ auth_filename = 'auth.json'
 
 class SpotifyControl():
     def __init__(self):
+        '''This class is for authenticating with spotify and controlling playback'''
         scope = "user-library-read user-read-playback-state user-modify-playback-state"
 
         with open('auth.json', 'r') as auth_file:
@@ -17,6 +18,7 @@ class SpotifyControl():
                                                             redirect_uri=auth_dict['redirect_url']))
 
     def get_id(self, device_name):
+        '''Finds id of a device by its name'''
         dev_list = self.sp.devices()['devices']
 
         for device in dev_list:
@@ -29,12 +31,13 @@ class SpotifyControl():
         return None
     
     def play(self, playlist_uri, device_id):
+        '''Start playback on a selected device'''
         self.sp.start_playback(device_id=device_id, context_uri=playlist_uri)
 
 
 if __name__ == '__main__':
     contr = SpotifyControl()
-    denon = contr.get_id("Denon")
+    denon = contr.get_id("Galaxy S9")
     random_access_memories = "spotify:album:4m2880jivSbbyEGAKfITCa"
 
     contr.play(playlist_uri=random_access_memories,

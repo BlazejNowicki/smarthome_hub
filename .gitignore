@@ -3,3 +3,4 @@ plan.txt
 .cache
 __pycache__
 auth.json
+.ipynb_checkpoints
