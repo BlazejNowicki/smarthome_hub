@@ -1,26 +1,26 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <div>
-        <form method='POST' action="">
-            {{ form.hidden_tag() }}
-            <fieldset>
-                <legend>Edit alarm</legend>
-                <div>
-                    {{ form.time.label() }}
-                    {{ form.time() }}
-                </div>
-                <div>
-                    {{ form.playlist_name.label() }}
-                    {{ form.playlist_name() }}
-                </div>
-                <div>
-                    {{ form.playlist_id.label() }}
-                    {{ form.playlist_id() }}
-                </div>
-            </fieldset>
+<div>
+    <h3>New alarm</h3>
+    <form method='POST' action="" id="edit-form">
+        {{ form.hidden_tag() }}
+        <fieldset>
             <div>
-                {{ form.submit() }}
+                {{ form.time.label() }}
+                {{ form.time() }}
             </div>
-        </form>
-    </div>
+            <div>
+                {{ form.playlist_name.label() }}
+                {{ form.playlist_name() }}
+            </div>
+            <div>
+                {{ form.playlist_id.label() }}
+                {{ form.playlist_id() }}
+            </div>
+        </fieldset>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+</div>
 {% endblock content %}

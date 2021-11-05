@@ -1,0 +1,156 @@
+body {
+    background-color: rgb(45, 56, 50);
+    font-family: 'Rubik', sans-serif;
+}
+
+main {
+    background-color: rgb(218, 218, 218);
+    padding: 15px;
+    color: rgb(45, 51, 44);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    margin: 0px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#new-alarm {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#subtitle {
+    margin: 0px 0px 20px 0px;
+    font-size: 13px;
+    color: rgb(100, 100, 100);
+}
+
+.alarm-box {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.alarm {
+    margin-bottom: 10px;
+    padding: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.alarm:hover {
+    background-color: rgb(197, 197, 197);
+}
+
+button {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#button-save {
+    min-width: 150px;
+    background-color: rgb(6, 87, 42);
+    color: white;
+}
+
+#button-save:hover {
+    background-color: rgb(42, 110, 73);
+}
+
+.hour {
+    font-size: 18px;
+    margin: 10px 0px 5px 0px;
+}
+
+a:link {
+    text-decoration: none;
+    color: rgb(45, 56, 50);
+}
+
+a:visited {
+    text-decoration: none;
+    color: rgb(45, 56, 50);
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(45, 56, 50);
+}
+
+a:active {
+    text-decoration: none;
+    color: rgb(45, 56, 50);
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background: #1b693f;
+    color: cornsilk;
+    font-size: 13px;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.save-cancel {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#delete-button {
+    font-size: 20px;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 15px;
+}
+
+fieldset > * {
+    margin: 10px;
+    display: flex;
+}
+
+fieldset > * > :first-child {
+    width: 50%;
+}
+
+label {
+    /* text-align: right; */
+    padding-right: 10px;
+}
+
+h3 {
+    /* text-align: center; */
+    padding: 10px 0px 10px 25px;
+}
+
+#edit-form > :last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    border: gray 1px solid;
+    border-radius: 4px;
+}
